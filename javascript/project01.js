@@ -267,7 +267,7 @@ const wisconsinTaxes = grossIncome => {
     const taxThreshold02 = 23930;
     const taxThreshold03 = 263480; 
 
-    // Cumulative tax on brackets 1 through 6 at 100%
+    // Cumulative tax on brackets 1 through 3 at 100%
     const taxOnBracket01 = 423.74;
     const taxOnBrackets01And02 = 979.88;
     const taxOnBrackets01Through03 = 15999.67;
@@ -390,13 +390,10 @@ const medicareTaxes = grossIncome => {
 const totalTaxes = grossIncome => {
     "use strict";
 
-    let totalTax = 0;
     let federalTax = federalTaxes(grossIncome);
     let wisconsinTax = wisconsinTaxes(grossIncome);
     let ficaTax = ficaTaxes(grossIncome);
     let medicareTax = medicareTaxes(grossIncome);
-
-    totalTax = federalTax + wisconsinTax + ficaTax + medicareTax;
 
     return federalTax + wisconsinTax + ficaTax + medicareTax;
 }
